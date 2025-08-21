@@ -1,0 +1,62 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+# MySQL InnoDB 임시 파일
+*.dblwr
+*redo_tmp
+*.sdi
+mysql/data/
+*.ibd
+*.ibdata*
+*.ibtmp*
+# InnoDB redo 로그
+#ib_redo*
+# Double write buffer
+# 일반 로그
+*.CSV
+*.CSM
+# binlog 관련
+binlog.*
+auto.cnf
+# Socket
+*.sock
+# SSL 인증서
+*.pem
+*.ibt
+*ib*
+undo_*
