@@ -12,8 +12,6 @@ services:
       - MYSQL_USER=local
       - MYSQL_PASSWORD=local
       - MYSQL_ROOT_PASSWORD=admin
-      - MYSQL_ALLOW_EMPTY_PASSWORD=admin
-      - MYSQL_RANDOM_ROOT_PASSWORD=admin
   redis:
     image: redis:7.2.5
     container_name: mytv-redis

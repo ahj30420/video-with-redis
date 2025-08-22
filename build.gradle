@@ -1,7 +1,10 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.5.4'
-    id 'io.spring.dependency-management' version '1.1.7'
+    id 'org.springframework.boot' version '3.3.1'
+    id 'io.spring.dependency-management' version '1.1.5'
+    id 'java-test-fixtures'
+    id 'jacoco'
+    id "io.freefair.lombok" version "8.6"
 }
 
 group = 'com.project'
@@ -40,10 +43,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
     runtimeOnly 'mysql:mysql-connector-java:8.0.32'
 
-    annotationProcessor 'org.projectlombok:lombok'
-    compileOnly 'org.projectlombok:lombok'
-
-
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'com.h2database:h2'
     testRuntimeOnly 'de.flapdoodle.embed:de.flapdoodle.embed.mongo.spring3x:4.16.1'
@@ -54,14 +53,14 @@ test {
     useJUnitPlatform()
 }
 
-//jacocoTestReport {
-//    dependsOn test
-//
-//    afterEvaluate {
-//        classDirectories.setFrom(
-//            files(classDirectories.files.collect {
-//                fileTree(dir: it, exclude: ["**/config/*"])
-//            })
-//        )
-//    }
-//}
+jacocoTestReport {
+    dependsOn test
+
+    afterEvaluate {
+        classDirectories.setFrom(
+                files(classDirectories.files.collect {
+                    fileTree(dir: it, exclude: ["**/config/*"])
+                })
+        )
+    }
+}

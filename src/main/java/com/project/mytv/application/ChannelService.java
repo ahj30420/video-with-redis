@@ -6,6 +6,7 @@ import com.project.mytv.application.port.out.LoadChannelPort;
 import com.project.mytv.application.port.out.SaveChannelPort;
 import com.project.mytv.domain.channel.Channel;
 import com.project.mytv.domain.channel.ChannelSnippet;
+import com.project.mytv.domain.channel.ChannelStatistics;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
@@ -31,6 +32,8 @@ public class ChannelService implements ChannelUseCase {
                                 .publishedAt(LocalDateTime.now())
                                 .build()
                 )
+                .statistics(ChannelStatistics.getDefaultStatistics())
+                .contentOwnerId(request.getContentOwnerId())
                 .build();
 
         saveChannelPort.saveChannel(channel);
