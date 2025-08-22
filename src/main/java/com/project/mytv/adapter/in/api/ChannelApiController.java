@@ -3,7 +3,9 @@ package com.project.mytv.adapter.in.api;
 import com.project.mytv.adapter.in.api.dto.ChannelRequest;
 import com.project.mytv.adapter.in.api.dto.CommandResponse;
 import com.project.mytv.application.port.in.ChannelUseCase;
+import com.project.mytv.domain.channel.Channel;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,5 +31,10 @@ public class ChannelApiController {
             @RequestBody ChannelRequest channelRequest
     ) {
       channelUseCase.updateChannel(channelId, channelRequest);
+    }
+
+    @GetMapping("{channelId}")
+    public Channel getChannel(@PathVariable String channelId) {
+        return channelUseCase.getChannel(channelId);
     }
 }

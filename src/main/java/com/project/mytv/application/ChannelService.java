@@ -51,6 +51,6 @@ public class ChannelService implements ChannelUseCase {
 
     @Override
     public Channel getChannel(String id) {
-        return null;
+        return loadChannelPort.loadChannel(id).get();
     }
 }
