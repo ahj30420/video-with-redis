@@ -2,10 +2,12 @@ package com.project.mytv.application;
 
 import com.project.mytv.adapter.in.api.dto.ChannelRequest;
 import com.project.mytv.application.port.in.ChannelUseCase;
+import com.project.mytv.application.port.out.LoadChannelPort;
 import com.project.mytv.application.port.out.SaveChannelPort;
 import com.project.mytv.domain.channel.Channel;
 import com.project.mytv.domain.channel.ChannelSnippet;
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ChannelService implements ChannelUseCase {
 
+    private final LoadChannelPort loadChannelPort;
     private final SaveChannelPort saveChannelPort;
 
     @Override
@@ -36,6 +39,10 @@ public class ChannelService implements ChannelUseCase {
 
     @Override
     public Channel updateChannel(String channelId, ChannelRequest channelRequest) {
+        var channel = loadChannelPort.loadChannel(channelId).get();
+        channel.updateSnippet(channelRequest.getSnippet());
+
+        saveChannelPort.saveChannel(channel);
         return null;
     }
 
