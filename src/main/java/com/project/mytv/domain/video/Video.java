@@ -1,5 +1,6 @@
 package com.project.mytv.domain.video;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Video {
+public class Video implements Serializable {
     private String id;
     private String title;
     private String description;
