@@ -39,12 +39,12 @@ public class RedisConfig {
             .build();
     }
 
-    /*@Bean
+    @Bean
     public RedisCacheManager redisTtl10mCacheManager(RedisConnectionFactory redisConnectionFactory) {
         return RedisCacheManager.builder(redisConnectionFactory)
             .cacheDefaults(ttl10mCacheConfiguration())
             .build();
-    }*/
+    }
 
 
     private RedisCacheConfiguration ttl10mCacheConfiguration() {

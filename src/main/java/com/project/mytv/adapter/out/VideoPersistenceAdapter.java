@@ -51,8 +51,8 @@ public class VideoPersistenceAdapter implements LoadVideoPort, SaveVideoPort {
 
     @Override
     @Caching(evict = {
-            @CacheEvict(cacheNames = VIDEO, key = "#video.id"),
-            @CacheEvict(cacheNames = VIDEO_LIST, key = "video.channelId")
+            @CacheEvict(cacheNames = VIDEO_LIST, key = "#video.channelId"),
+            @CacheEvict(cacheNames = VIDEO, key = "#video.id")
     })
     public void saveVideo(Video video) {
         videoJpaRepository.save(VideoJpaEntity.from(video));
