@@ -24,6 +24,7 @@ public class CacheNames {
     public static final String SUBSCRIBE = "subscribe";
     public static final String SUBSCRIBE_CHANNEL_BY_USER = SUBSCRIBE + SEPARATOR + "channel-by-user";
     public static final String SUBSCRIBE_USER = SUBSCRIBE + SEPARATOR + "user";
+    public static final String SUBSCRIBE_CHANNEL = SUBSCRIBE + SEPARATOR + "channel";
 
     public static final String COMMENT = "comment";
     public static final String COMMENT_LIKE = COMMENT + SEPARATOR + "like";
