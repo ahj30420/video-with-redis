@@ -17,4 +17,18 @@ public class VideoLikePersistenceAdapter implements VideoLikePort {
         return stringRedisTemplate.opsForSet().size(RedisKeyGenerator.getVideoLikeKey(videoId));
     }
 
+    @Override
+    public Long addVideoLike(String videoId, String userId) {
+        return stringRedisTemplate.opsForSet().add(RedisKeyGenerator.getVideoLikeKey(videoId), userId);
+    }
+
+    @Override
+    public Long removeVideoLike(String videoId, String userId) {
+        return stringRedisTemplate.opsForSet().remove(RedisKeyGenerator.getVideoLikeKey(videoId), userId);
+    }
+
+    @Override
+    public boolean isVideoLikeMember(String videoId, String userId) {
+        return stringRedisTemplate.opsForSet().isMember(RedisKeyGenerator.getVideoLikeKey(videoId), userId);
+    }
 }
